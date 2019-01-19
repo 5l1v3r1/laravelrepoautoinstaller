@@ -87,7 +87,7 @@ printf "$GREEN SQL file imported successfuly $NC \n"
 
 
 
-cd ..
-sudo chmod 777 $laravelFolder/public -R
+#cd ..
+#sudo chmod 777 $laravelFolder/public -R
 
 
