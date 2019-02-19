@@ -39,10 +39,7 @@ until mysql -u $mysqlRootUser -p$mysqlRootPassword -e "create database $database
         read -p "Database name: " database
 done
 
-printf "$GREEN Importing database sql file $NC \n"
-mysql -u root -p$mysqlRootPassword $database < database.sql
-printf "$GREEN SQL file imported successfuly $NC \n"
-
+printf "$GREEN Creating .env file configuration $NC \n"
 
 sed -i "s/DB_DATABASE=homestead/DB_DATABASE=$database/gi" $laravelFolder/.env
 sed -i "s/DB_USERNAME=homestead/DB_USERNAME=$mysqlRootUser/gi" $laravelFolder/.env
@@ -84,10 +81,3 @@ php artisan migrate
 printf "$GREEN Importing database sql file $NC \n"
 mysql -u root -p$mysqlRootPassword $database < database.sql
 printf "$GREEN SQL file imported successfuly $NC \n"
-
-
-
-#cd ..
-#sudo chmod 777 $laravelFolder/public -R
-
-
