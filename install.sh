@@ -81,3 +81,8 @@ php artisan migrate
 printf "$GREEN Importing database sql file $NC \n"
 mysql -u root -p$mysqlRootPassword $database < database.sql
 printf "$GREEN SQL file imported successfuly $NC \n"
+
+printf "$GREEN Setting chmod in required folders $NC \n"
+sudo chmod 777 ./storage -R
+sudo chmod 777 ./public -R
+
