@@ -41,9 +41,18 @@ done
 
 printf "$GREEN Creating .env file configuration $NC \n"
 
+
+# Linux support
 sed -i "s/DB_DATABASE=homestead/DB_DATABASE=$database/gi" $laravelFolder/.env
 sed -i "s/DB_USERNAME=homestead/DB_USERNAME=$mysqlRootUser/gi" $laravelFolder/.env
+sed -i '' -e "s/DB_PASSWORD=secret/DB_PASSWORD=$mysqlRootPassword/g" $laravelFolder/.env
+
+
+# Mac support
+sed -i '' -e "s/DB_DATABASE=homestead/DB_DATABASE=$database/g" $laravelFolder/.env
+sed -i '' -e "s/DB_USERNAME=homestead/DB_USERNAME=$mysqlRootUser/g" $laravelFolder/.env
 sed -i "s/DB_PASSWORD=secret/DB_PASSWORD=$mysqlRootPassword/gi" $laravelFolder/.env
+
 
 apt-get install php-memcached
 
