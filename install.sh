@@ -53,15 +53,14 @@ sed -i '' -e "s/DB_DATABASE=homestead/DB_DATABASE=$database/g" $laravelFolder/.e
 sed -i '' -e "s/DB_USERNAME=homestead/DB_USERNAME=$mysqlRootUser/g" $laravelFolder/.env
 sed -i "s/DB_PASSWORD=secret/DB_PASSWORD=$mysqlRootPassword/gi" $laravelFolder/.env
 
-pwd
-ls laravelFolder
-pwd
-php artisan key:generate
+
 
 apt-get install php-memcached
 
 cd $laravelFolder
 composer install
+php artisan key:generate
+echo "holaaa"
 
 v="$(cat <<-EOF
 <?php
@@ -89,6 +88,8 @@ sed -i "s/APP_KEY=/APP_KEY=$newKey/gi" $laravelFolder/.env
 
 # Mac support
 sed -i '' -e "s/APP_KEY=/APP_KEY=$newKey/g" $laravelFolder/.env
+
+
 
 
 rm phpkey-generate.php
