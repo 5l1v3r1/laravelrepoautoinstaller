@@ -96,7 +96,7 @@ rm phpkey-generate.php
 
 
 php artisan migrate
-
+php artisan migrate:refresh --seed
 
 printf "$GREEN Importing database sql file $NC \n"
 mysql -u root -p$mysqlRootPassword $database < database.sql
