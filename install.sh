@@ -108,3 +108,5 @@ printf "$GREEN Setting chmod in required folders $NC \n"
 sudo chmod 777 ./storage -R
 sudo chmod 777 ./public -R
 
+php artisan storage:link
+
